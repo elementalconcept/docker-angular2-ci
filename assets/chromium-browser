@@ -1,0 +1,8 @@
+#!/bin/sh
+
+DISPLAY=:10
+export DISPLAY
+Xorg -noreset +extension GLX +extension RANDR +extension RENDER -config /root/xorg.conf :10 &
+sleep 3
+
+chromium-browser-bin --no-sandbox --user-data-dir=/home/chrome --disable-gpu $@
